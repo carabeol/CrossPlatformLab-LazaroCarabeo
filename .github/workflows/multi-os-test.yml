@@ -3,7 +3,7 @@ name: Multi-OS Testing - LazaroCarabeo
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   test-ubuntu:
