@@ -1,0 +1,43 @@
+name: Multi-OS Testing - Lazaro Carabeo
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Message
+        run: echo "Testing on Ubuntu..."
+
+      - name: Display OS Information
+        run: uname -a
+
+      - name: Create Test File
+        run: echo "Ubuntu test by lazaro" > test-ubuntu.txt
+
+      - name: Display File Contents
+        run: cat test-ubuntu.txt
+
+      - name: Completion Message
+        run: echo "Ubuntu tests completed"
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Start Message
+        run: Write-Host "Testing on Windows..."
+
+      - name: Display OS Information
+        run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+
+      - name: Create Test File
+        run: Set-Content -Path test-windows.txt -Value "Windows test by lazaaaro"
+
+      - name: Display File Contents
+        run: Get-Content -Path test-windows.txt
+
+      - name: Completion Message
+        run: Write-Host "Windows tests completed"
